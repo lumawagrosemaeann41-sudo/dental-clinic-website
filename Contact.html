@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Dolorfino-Cenal Dental Care</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(20, 40, 80, 0.35), rgba(149, 189, 241, 0.35));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* BACK BUTTON */
+.back-btn {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(10px);
+    padding: 10px 15px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #023e8a;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: white;
+    transform: translateX(-3px);
+}
+
+/* GLASS CONTAINER */
+.container {
+    width: 90%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    text-align: center;
+    color: #023e8a;
+}
+
+/* TITLE */
+.container h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.container p.subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* CONTACT ITEMS */
+.contact-item {
+    background: rgba(255,255,255,0.6);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.contact-item:hover {
+    transform: translateY(-3px);
+    background: white;
+}
+
+.contact-item span {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    border-radius: 30px;
+    background: #0077b6;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #023e8a;
+    transform: scale(1.05);
+}
+
+/* ANIMATION */
+.container {
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+</style>
+
+</head>
+<body>
+
+<!-- BACK BUTTON -->
+<a href="index.html" class="back-btn">⬅ Back</a>
+
+<div class="container">
+    <h1>Contact Us</h1>
+    <p class="subtitle">Dolorfino-Cenal Dental Care</p>
+
+    <div class="contact-item">
+        <span>📞 Contact Number</span>
+        09317586354
+    </div>
+
+    <div class="contact-item">
+        <span>📘 Facebook Page</span>
+        Dolorfino-Cenal Dental Care
+    </div>
+
+    <div class="contact-item">
+        <span>📧 Email Address</span>
+        dcdental25@gmail.com
+    </div>
+
+    <a href="https://www.facebook.com/photo/?fbid=1366921378782423&set=a.468616675279569&__cft__[0]=AZYmXetJSsCdIzzQVGUrU6JmgvoaKCr-oCrIQZQpZ3R4UgvkdSBrhMaDOcpPDzwhhu4XOdcIdJHSGFVHc6GD_Lg3tHpQDlJIfMgm2Ni9T5WB53yCJY7GaR3or8Hor6-k9-sJqAT1KMC4edVWX9AnvgjbSIlMagdMjBGfU81e-wnfH9_zsOnoCUr-2_74s9qYdzE&__tn__=EH-R" target="_blank" class="btn">
+        Visit Facebook Page
+    </a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Appointment Details</title>
+
+<style>
+body{
+    font-family:Segoe UI;
+    background:linear-gradient(135deg,#c0e0ff,#e6f2ff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.box{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    width:320px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.reschedule{background:orange;color:white;}
+.cancel{background:red;color:white;}
+.back{background:#2c7be5;color:white;}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Appointment Details</h2>
+    <div id="details"></div>
+
+    <button class="reschedule" onclick="reschedule()">Reschedule</button>
+    <button class="cancel" onclick="cancel()">Cancel Appointment</button>
+    <button class="back" onclick="back()">Back</button>
+</div>
+
+<script>
+function loadData(){
+    let data = JSON.parse(localStorage.getItem("appointment"));
+
+    if(data){
+        document.getElementById("details").innerHTML =
+        "Name: " + data.name + "<br><br>" +
+        "Email: " + data.email + "<br><br>" +
+        "Service: " + data.service + "<br><br>" +
+        "Date: " + data.date + "<br><br>" +
+        "Time: " + data.time;
+    } else {
+        document.getElementById("details").innerHTML = "No appointment found.";
+    }
+}
+
+function cancel(){
+    localStorage.removeItem("appointment");
+    alert("Appointment Cancelled");
+    window.location.href = "appointment.html";
+}
+
+function reschedule(){
+    window.location.href = "appointment.html";
+}
+
+function back(){
+    window.location.href = "appointment.html";
+}
+
+loadData();
+</script>
+
+</body>
+</html>

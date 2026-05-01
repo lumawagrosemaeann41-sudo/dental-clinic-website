@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Appointment - Dolorfino-Cenal Dental Care</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #c0e0ff, #e6f2ff);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    border-radius: 30px;
+    background: #0077b6;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #023e8a;
+    transform: scale(1.05);
+}
+
+/* BACK BUTTON */
+.back-btn {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(10px);
+    padding: 10px 15px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #023e8a;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: white;
+    transform: translateX(-3px);
+}
+
+/* CONTAINER */
+.container {
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 30px 25px;
+    width: 320px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #2c7be5;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+h2::before {
+    content: "🦷";
+    display: block;
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+/* SPACING */
+.input-group {
+    position: relative;
+    margin: 15px 0;
+}
+
+/* SAME SIZE */
+.input-group input, 
+.input-group select,
+button,
+input[type="submit"] {
+    width: 100%;
+    padding: 14px 15px;
+    border-radius: 25px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* INPUT STYLE */
+.input-group input, 
+.input-group select {
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus, 
+.input-group select:focus {
+    border-color: #2c7be5;
+    box-shadow: 0 0 8px rgba(44,123,229,0.3);
+}
+
+.input-group label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555;
+    font-size: 14px;
+    pointer-events: none;
+    background: #fff;
+    padding: 0 5px;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label,
+.input-group select:focus + label,
+.input-group select:valid + label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    color: #2c7be5;
+}
+
+button, input[type="submit"] {
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+input[type="submit"] {
+    background: linear-gradient(135deg, #2c7be5, #1a5dcc);
+    color: #fff;
+}
+
+.cancel {
+    background: linear-gradient(135deg, #ff4d4f, #cc0000);
+    color: #fff;
+}
+
+.reschedule {
+    background: linear-gradient(135deg, #ffa500, #e69500);
+    color: #fff;
+}
+
+.button-group {
+    margin-top: 10px;
+}
+
+.button-group button {
+    margin-top: 10px;
+}
+
+.record {
+    margin-top: 25px;
+    font-size: 0.95em;
+    text-align: left;
+    padding: 15px;
+    border-radius: 20px;
+    background: #f7faff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    color: #333;
+}
+
+@media(max-width: 400px) {
+    .container {
+        width: 90%;
+        padding: 35px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="back-btn">⬅ Back</a>
+
+<div class="container">
+    <h2>Dental Appointment</h2>
+
+    <form onsubmit="saveAppointment(event)">
+        <div class="input-group">
+            <input type="text" id="name" required>
+            <label>Name</label>
+        </div>
+
+        <div class="input-group">
+            <input type="email" id="email" required>
+            <label>Email</label>
+        </div>
+
+        <div class="input-group">
+            <select id="service" required>
+                <option value="" disabled selected></option>
+                <option>TOOTH EXTRACTION (GABOT)</option>
+                <option>TOOTH FILLING (PASTA)</option>
+                <option>ORAL PROPHYLAXIS (TEETH CLEANING)</option>
+                <option>ODONTECTOMY (WISDOM TOOTH REMOVAL)</option>
+                <option>ORTHODONTIC TREATMENT (DENTAL BRACES)</option>
+                <option>REMOVABLE PARTIAL DENTURE (PUSTISO)</option>
+                <option>COMPLETE DENTURE</option>
+                <option>ROOT CANAL TREATMENT (RCT)</option>
+                <option>DIRECT AND INDIRECT VENEERS</option>
+                <option>TEETH WHITENING</option>
+                <option>FLOURIDE TREATMENT</option>
+                <option>JACKET CROWN</option>
+                <option>FIXED BRIDGE</option>
+            </select>
+            <label>Service</label>
+        </div>
+
+        <div class="input-group">
+            <input type="date" id="date" required>
+        </div>
+
+        <div class="input-group">
+            <input type="time" id="time" required>
+        </div>
+
+        <input type="submit" value="Confirm">
+    </form>
+
+
+<script>
+function saveAppointment(event) {
+    event.preventDefault();
+
+    let appointment = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        service: document.getElementById("service").value,
+        date: document.getElementById("date").value,
+        time: document.getElementById("time").value
+    };
+
+    localStorage.setItem("appointment", JSON.stringify(appointment));
+
+    document.querySelector("form").reset();
+
+    // ✅ AUTO REDIRECT TO VIEW DETAILS
+    window.location.href = "view_details.html";
+}
+</script>
+
+</body>
+</html>

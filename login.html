@@ -1,0 +1,225 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Dental Clinic Login</title> 
+
+<style> 
+/* Modern brick aesthetic background */
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+margin: 0;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+
+position: relative;
+
+/* 🧊 SOFT MEDICAL BASE */
+background: linear-gradient(
+135deg,
+#f4fbff 0%,
+#eaf4ff 50%,
+#d9ecff 100%
+);
+}
+
+/* 🏥 CLEAR BUT SOFT CLINIC BACKGROUND */
+body::before {
+content: "";
+position: absolute;
+inset: 0;
+
+background: url("https://images.unsplash.com/photo-1629909613654-28e377c37b09") center/cover no-repeat;
+
+/* 🔥 MAS CLEAR NA IMAGE */
+filter: blur(3px) brightness(0.9) contrast(1.05);
+transform: scale(1.05);
+
+z-index: -2;
+}
+
+/* 🌫️ STRONGER OVERLAY FOR READABILITY */
+body::after {
+content: "";
+position: absolute;
+inset: 0;
+
+/* darker center focus */
+background: radial-gradient(
+circle at center,
+rgba(255,255,255,0.2) 0%,
+rgba(0,90,180,0.35) 60%,
+rgba(0,0,0,0.45) 100%
+);
+
+z-index: -1;
+}
+
+/* Glassmorphism card */ 
+.container { 
+position: relative; 
+width: 350px; 
+padding: 80px 35px 40px; 
+border-radius: 25px; 
+text-align: center;
+overflow: hidden;
+
+/* 🔥 MODERN GLASS */
+background: rgba(255, 255, 255, 0.15);
+backdrop-filter: blur(18px);
+
+color: #fff;
+box-shadow: 0 10px 35px rgba(252, 252, 252, 0.5); 
+} 
+
+/* logo background */
+.container::before { 
+content: ""; 
+position: absolute; 
+inset: 0; 
+background: url("1771493010038.jpg") center/cover no-repeat;
+top: -30px; 
+
+/* 🔥 AYOS NA SETTINGS (MAS MALINAW) */
+opacity: 0.5;          /* dati 0.25 → mas visible */
+filter: brightness(0.9) contrast(1.2); /* tanggal blur, mas sharp */
+
+z-index: 0; 
+}
+.container {
+position: relative;
+width: 350px;
+padding: 80px 35px 40px;
+border-radius: 25px;
+text-align: center;
+overflow: hidden;
+
+/* 🔥 MAS MALINAW + POP OUT */
+background: rgba(255, 255, 255, 0.22);
+backdrop-filter: blur(20px);
+
+border: 1px solid rgba(255,255,255,0.35);
+
+/* stronger shadow for focus */
+box-shadow: 
+0 20px 60px rgba(0,0,0,0.35),
+0 0 30px rgba(0,140,255,0.25);
+
+color: #050505;
+
+/* slight lift effect */
+transform: translateZ(0);
+}
+
+
+/* Dental icon */ 
+.container h2::before { 
+content: "🦷"; 
+display: block; 
+font-size: 3em; 
+margin-bottom: 10px; 
+} 
+
+/* INPUTS */ 
+.input-group { 
+position: relative; 
+margin: 30px 0; 
+} 
+
+.input-group input { 
+width: 100%; 
+padding: 14px 15px; 
+border-radius: 25px; 
+border: none; 
+outline: none; 
+font-size: 1em;
+
+/* modern input */
+background: rgba(255,255,255,0.8); 
+color: #000;
+} 
+
+.input-group label { 
+position: absolute; 
+top: 50%; 
+left: 20px; 
+transform: translateY(-50%); 
+color: #333; 
+font-size: 14px; 
+pointer-events: none; 
+} 
+
+.input-group input:focus + label,
+.input-group input:valid + label { 
+top: -10px; 
+left: 15px; 
+font-size: 12px; 
+} 
+
+/* BUTTON */ 
+button { 
+width: 100%; 
+padding: 14px; 
+border: none; 
+border-radius: 25px;
+
+/* 🔥 MODERN BUTTON */
+background: linear-gradient(135deg, #2c7be5, #00c6ff);
+
+font-size: 1em; 
+font-weight: bold; 
+color: white; 
+cursor: pointer; 
+
+margin-top: 20px; 
+
+/* ✅ NEW (para mapunta sa ilalim ng logo area) */
+position: relative;
+top: 30px;
+}
+
+button:hover { 
+opacity: 0.9;
+} 
+</style> 
+
+<script> 
+function login() { 
+let user = document.getElementById("username").value; 
+let pass = document.getElementById("password").value; 
+
+if(user === "admin" && pass === "1234"){ 
+localStorage.setItem("loggedIn", "true"); 
+window.location.href = "index.html"; 
+} else { 
+alert("Wrong username or password!"); 
+} 
+} 
+</script> 
+
+</head> 
+
+<body> 
+
+<div class="container"> 
+<h2>Dental Clinic Login</h2> 
+
+<div class="input-group"> 
+<input type="text" id="username" required> 
+<label>Username</label> 
+</div> 
+
+<div class="input-group"> 
+<input type="password" id="password" required> 
+<label>Password</label> 
+</div> 
+
+<button onclick="login()">Login</button> 
+</div> 
+
+</body> 
+</html>

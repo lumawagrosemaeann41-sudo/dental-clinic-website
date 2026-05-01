@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dental Services</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, rgba(20, 40, 80, 0.35), rgba(149, 189, 241, 0.35));
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    border-radius: 30px;
+    background: #0077b6;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.back-btn {
+    text-decoration: none;
+    color: #2c7be5;
+    font-weight: bold;
+    background: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #023e8a;
+    transform: scale(1.05);
+}
+/* BACK BUTTON */
+.back-btn {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(10px);
+    padding: 10px 15px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #023e8a;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: white;
+    transform: translateX(-3px);
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    padding: 40px;
+}
+
+.header h1 {
+    color: #2c7be5;
+}
+
+/* GRID */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 30px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card h3 {
+    color: #2c7be5;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: rgb(223, 220, 220);
+    padding: 25px;
+    border-radius: 20px;
+    width: 300px;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.modal-content button {
+    margin-top: 15px;
+    padding: 8px 15px;
+    border: none;
+    background: #2c7be5;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform: scale(0.9);}
+    to {opacity:1; transform: scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html" class="back-btn">⬅ Back</a>
+</nav>
+
+<div class="header">
+    <h1>Our Dental Services 🦷</h1>
+    <p>Click a service to learn more</p>
+</div>
+
+<div class="services">
+
+<div class="card" onclick="openModal('Tooth Extraction (Gabot)','This is the removal of a tooth from the mouth. It is usually done when the tooth is severely damaged or decayed. This helps relieve pain and prevent infection from spreading.','Tooth Extraction (Gabot).jpg')">
+    <h3>TOOTH EXTRACTION (GABOT)</h3>
+</div>
+
+<div class="card" onclick="openModal('Tooth Filling (Pasta)','This procedure repairs a tooth affected by cavities. The decayed part is removed and filled with a special material. It restores the tooths shape and function.','Tooth Filling (Pasta).jpg')">
+    <h3>TOOTH FILLING (PASTA)</h3>
+</div>
+
+<div class="card" onclick="openModal('Oral Prophylaxis (Teeth Cleaning)','This is a professional cleaning of the teeth. It removes plaque, tartar, and stains that cannot be removed by brushing alone. It helps maintain good oral health.','Oral Prophylaxis (Teeth Cleaning).jpg')">
+    <h3>ORAL PROPHYLAXIS (TEETH CLEANING)</h3>
+</div>
+
+<div class="card" onclick="openModal('Odontectomy (Wisdom Tooth Removal)','This is the surgical removal of wisdom teeth. It is done when the tooth is impacted or causing pain. This procedure prevents further complications in the mouth.','Odontectomy (Wisdom Tooth Removal).jpg')">
+    <h3>ODONTECTOMY (WISDOM TOOTH REMOVAL)</h3>
+</div>
+
+<div class="card" onclick="openModal('Orthodontic Treatment (Dental Braces)','This treatment corrects misaligned or crooked teeth. It uses braces to slowly move teeth into proper position. It improves both appearance and bite.','Orthodontic Treatment (Dental Braces).jpg')">
+    <h3>ORTHODONTIC TREATMENT (DENTAL BRACES)</h3>
+</div>
+
+<div class="card" onclick="openModal('Removable Partial Denture (Pustiso)','This is a removable appliance used to replace missing teeth. It is used when some natural teeth are still present. It helps restore chewing and appearance.','Removable Partial Denture (Pustiso).jpg')">
+    <h3>REMOVABLE PARTIAL DENTURE (PUSTISO)</h3>
+</div>
+
+<div class="card" onclick="openModal('Complete Denture','This is used when all natural teeth are missing. It is full set of artificial teeth. It helps improve speaking, chewing, and appearance.','Complete Denture.jpg')">
+    <h3>COMPLETE DENTURE</h3>
+</div>
+
+<div class="card" onclick="openModal('Root Canal Treatment (RCT)','This procedure treats infection inside the tooth. The damaged pulp is removed and the tooth is sealed. It helps save the natural tooth instead of removing it.','Root Canal Treatment (RCT).jpg')">
+    <h3>ROOT CANAL TREATMENT (RCT)</h3>
+</div>
+
+<div class="card" onclick="openModal('Direct and Indirect Veneers','These are thin coverings placed on the front teeth. They improve the color, shape, and appearance of teeth. They are commonly used for cosmetic purposes.','Direct and Indirect Veneers.jpg')">
+    <h3>DIRECT AND INDIRECT VENEERS</h3>
+</div>
+
+<div class="card" onclick="openModal('Teeth Whitening','This is a cosmetic procedure that lightens the teeth. It removes stains and discoloration. It makes the smile look brighter and cleaner.','Teeth Whitening.jpg')">
+    <h3>TEETH WHITENING</h3>
+</div>
+
+<div class="card" onclick="openModal('Fluoride Treatment','This treatment strengthens the teeth using fluoride. It helps prevent tooth decay and cavities. It is often recommended for both children and adults.','Fluoride Treatment.jpg')">
+    <h3>FLUORIDE TREATMENT</h3>
+</div>
+
+<div class="card" onclick="openModal('Jacket Crown','This is a cap placed over a damaged tooth. It restores the tooths shape, strength, and appearance. It also protects the tooth from further damage.','Jacket Crown.jpg')">
+    <h3>JACKET CROWN</h3>
+</div>
+
+<div class="card" onclick="openModal('Fixed Bridge','This is used to replace one or more missing teeth. It is fixed in place using adjacent teeth for support. It helps restore proper chewing and appearance.','Fixed Bridge.jpg')">
+    <h3>FIXED BRIDGE</h3>
+</div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <h2 id="title"></h2>
+        <img id="image" alt="Service Image">
+        <p id="description"></p>
+        <button onclick="closeModal()">Back</button>
+    </div>
+</div>
+
+<script>
+function openModal(title, desc, img){
+    document.getElementById("modal").style.display = "flex";
+    document.getElementById("title").innerText = title;
+    document.getElementById("image").src = img;
+    document.getElementById("description").innerText = desc;
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
